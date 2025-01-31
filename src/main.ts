@@ -38,6 +38,7 @@ fetch(apiUri)
   .then((data: imigoApiResponse) => {
     dict = data.イミ語辞書.slice(1).sort()
     isLoaded = true
+    document.querySelector('.warn')?.classList.add('close')
     dict.forEach((word) => {
       rb.insertAdjacentHTML('beforeend', `
         <div class="word">

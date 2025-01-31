@@ -4,6 +4,20 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
 }
 
+.warn {
+    border-radius: 15px;
+    background-color: #ffff00;
+    color: #000000;
+    transition: .5s;
+    width: 28rem;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.warn.close {
+    scale: 0;
+}
+
 main {
     width: 100vw;
     height: 100vh;
