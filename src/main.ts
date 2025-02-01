@@ -24,7 +24,10 @@ function findWord(value: string) {
 function showResult(inputword: string) {
   if (!isLoaded) alert('読み込み中です！')
   rb.innerHTML = ''
-  findWord(inputword).forEach((word) => {
+  findWord(inputword).sort((a, b) => {
+    if (a[0].length - b[0].length === 0) return a[2].length - b[2].length
+    return a[0].length - b[0].length
+  }).forEach((word) => {
     rb.insertAdjacentHTML('beforeend', `
       <div class="word">
         <span class="word_title">${word[0]}</span>
