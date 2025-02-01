@@ -1,5 +1,6 @@
 import { apiUri, imigoApiResponse } from "./constsant"
 import "./style.css"
+//import { translate2I } from "./translate"
 
 let isLoaded = false
 let dict: [string, string, string, string][] = []
@@ -14,7 +15,7 @@ function findWord(value: string) {
   }
   for (const word of collocationDict) {
     if (word[0].includes(value) || word[1].includes(value)) {
-      result.push([word[0], '熟語', word[1], word[2]])
+      result.push([word[0], '熟語/用例', word[1], word[2]])
     }
   }
   return result
@@ -35,9 +36,19 @@ function showResult(inputword: string) {
   })
 }
 
+//const tj = document.querySelector('#translate-japanese') as HTMLTextAreaElement
+//const ti = document.querySelector('#translate-imish') as HTMLTextAreaElement
+
 const si = document.querySelector('#search') as HTMLInputElement
 const sb = document.querySelector('#search-button') as HTMLButtonElement
 const rb = document.querySelector('#result') as HTMLDivElement
+
+/*tj.addEventListener('change', () => {
+  ti.value = ''
+  translate2I(dict.map((v) => {return { word: v[0], mean: v[1], type: v[2] }}), tj.value).forEach((word) => {
+    ti.value += word.word + ' '
+  })
+})*/
 
 sb.addEventListener('click', () => {
   showResult(si.value)
